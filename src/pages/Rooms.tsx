@@ -43,7 +43,10 @@ export default function Rooms() {
           onChange={(e) => setSearch(e.target.value)}
           className="outline-none w-1/4 h-12 focus: border-b-2 focus:border-gray-500 p-2"
         />
-        <button type="button" className="bg-gray-400 text-neutral-300 hover:bg-gray-500 hover: cursor-pointer w-20 h-12 rounded ">
+        <button
+          type="button"
+          className="bg-gray-400 text-neutral-300 hover:bg-gray-500 hover: cursor-pointer w-20 h-12 rounded "
+        >
           search
         </button>
       </div>
@@ -60,7 +63,8 @@ export default function Rooms() {
         </button>
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-4 sm:grid-cols-2 ">
-        {rooms?.map((room) => <RoomCard name={room.name} id={room.roomId} key={room.roomId} />)}
+        {rooms?.filter((el) => el.name.includes(search))
+          .map((room) => <RoomCard name={room.name} id={room.roomId} key={room.roomId} />)}
       </div>
     </div>
   );

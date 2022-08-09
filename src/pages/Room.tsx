@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { io, Socket } from "socket.io-client";
 
-export default function Room({ roomId }: {roomId: number}) {
+export default function Room() {
   interface Message{
     body: string,
     sender: string,
